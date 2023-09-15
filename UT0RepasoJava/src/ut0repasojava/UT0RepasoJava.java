@@ -59,15 +59,19 @@ public class UT0RepasoJava {
                     ejercicio14();
                     break;
                 case 15:
+                    ejercicio15();
                     break;
                 case 16:
+                    ejercicio16();
                     break;
                 case 17:
+                    ejercicio17();
                     break;
                 case 18:
+                    ejercicio18();
                     break;
                 default:
-                    System.out.println("ERROR.INTRODUCE UNA OPCION VALIDA.");
+                    System.out.println("ERROR.INTRODUCE UNA OPCIÓN VÁLIDA.");
                     opcion = -1;
             }
         } while (opcion == -1);
@@ -103,6 +107,23 @@ public class UT0RepasoJava {
         Scanner entrada = new Scanner(System.in);
         System.out.println(texto);
         return entrada.nextLine();
+    }
+
+    public static boolean esPrimo(int num) {
+        boolean primo = true;
+        int i = 2;
+        while (i < num && primo == true) {
+            if (num % i == 0) {
+                primo = false;
+            }
+            i++;
+        }
+        return primo;
+    }
+
+    public static boolean esVocal(char c) {
+        c = Character.toLowerCase(c);  // Convierte el carácter a minúsculas para facilitar la comprobación
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 
     // EJERCICIO 1
@@ -313,6 +334,65 @@ public class UT0RepasoJava {
 
     //EJERCICIO 15
     public static void ejercicio15() {
+        System.out.println("Pide por teclado un número entero positivo (debemos controlarlo) y muestra el número\n"
+                + "de cifras que tiene. Por ejemplo: si introducimos 1250, nos muestre que tiene 4 cifras.\n"
+                + "Tendremos que controlar si tiene una o más cifras, al mostrar el mensaje.");
+        int num;
+        int cifras = 0;
 
+//        PIDO EL NÚMERO CONTROLANDO QUE SEA POSITIVO.
+        num = pedirEntero("Introduce un número positivo:");
+        while (num < 0) {
+            System.out.println("ERROR.DEBES INTRODUCIR UN NÚMERO POSITIVO.");
+            num = pedirEntero("Introduce un número positivo:");
+        }
+
+//        CALCULO CUANTAS CIFRAS TIENE Y LAS MUESTRO
+        while (num != 0) {
+            num /= 10;
+            cifras++;
+        }
+
+        System.out.println("El número tiene " + cifras + " cifras.");
+    }
+
+    //EJERCICIO 16
+    public static void ejercicio16() {
+        System.out.println("Pide un número por teclado e indica si es un número primo o no. Un número primo es\n"
+                + "aquel que solo puede dividirse entre 1 y sí mismo. Por ejemplo: 25 no es primo, ya\n"
+                + "que 25 es divisible entre 5, sin embargo, 17 si es primo.");
+        int num = pedirEntero("Introduce un número: ");
+
+        if (esPrimo(num)) {
+            System.out.println("El número es primo.");
+        } else {
+            System.out.println("El número no es primo.");
+        }
+    }
+
+    //EJERCICIO 17
+    public static void ejercicio17() {
+        System.out.println("Muestra los números primos entre 1 y 100.");
+        for (int i = 1; i < 100; i++) {
+            if (esPrimo(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    //EJERCICIO 18
+    public static void ejercicio18() {
+        System.out.println("Del siguiente String “La lluvia en Sevilla es una maravilla” cuenta cuántas vocales hay\n"
+                + "en total (recorre el String con charAt).");
+        int vocales = 0;
+        String frase = "La lluvia en Sevilla es una maravilla";
+
+        for (int i = 0; i < frase.length(); i++) {
+            if (esVocal(frase.charAt(i))) {
+                vocales++;
+            }
+        }
+
+        System.out.println("La frase tiene " + vocales + " vocales.");
     }
 }
