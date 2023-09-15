@@ -201,7 +201,7 @@ public class UT0RepasoJava {
         System.out.println("Lee un número por teclado que pida el precio de un producto (puede tener decimales)\n"
                 + "y calcule el precio final con IVA. El IVA será una constante que será del 21%.");
         float precio = pedirDecimal("Por favor, introduce un precio: ");
-        precio += (precio * IVA);
+        precio += ((precio * IVA) / 100);
         System.out.println("El precio incluido IVA es: " + precio);
     }
 
@@ -245,6 +245,7 @@ public class UT0RepasoJava {
         for (int i = 0; i < numVentas; i++) {
             resultado += pedirEntero("Venta " + (i + 1));
         }
+        System.out.println("LA SUMA DE VENTAS ASCIENDE A " + resultado);
     }
 
     //EJERCICIO 11
@@ -326,10 +327,9 @@ public class UT0RepasoJava {
         int num2 = pedirEntero("Introduce el segundo numero:");
         int aux;
         for (int i = 0; i < 10; i++) {
-            aux = (int) Math.round(Math.random() * (num2 - 1) + num1);
+            aux = (int) Math.round(Math.random() * (num2 - num1) + num1);
             System.out.println(aux);
         }
-
     }
 
     //EJERCICIO 15
