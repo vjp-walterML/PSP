@@ -44,15 +44,18 @@ public class PintaTabla extends Thread {
             escribirTabla();
         } catch (IOException ex) {
             Logger.getLogger(PintaTabla.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (InterruptedException ex) {
+            Logger.getLogger(PintaTabla.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    private void escribirTabla() throws IOException {
+    private void escribirTabla() throws IOException, InterruptedException {
         File fichero = new File(directorio.getAbsolutePath(), String.valueOf(numero) + ".txt");
         PrintWriter pw = new PrintWriter(new FileWriter(fichero));
         pw.println("TABLA DEL " + numero);
         for (int i = 0; i < 10; i++) {
             pw.println(String.valueOf(numero) + " * " + i + " = " + (numero * i));
+            Thread.sleep(500);
         }
         pw.close();
     }
