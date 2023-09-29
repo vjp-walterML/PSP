@@ -50,7 +50,7 @@ public class PintaTabla extends Thread {
     private void escribirTabla() throws IOException {
         File fichero = new File(directorio.getAbsolutePath(), String.valueOf(numero) + ".txt");
         PrintWriter pw = new PrintWriter(new FileWriter(fichero));
-        pw.print("TABLA DEL " + numero);
+        pw.println("TABLA DEL " + numero);
         for (int i = 0; i < 10; i++) {
             pw.println(String.valueOf(numero) + " * " + i + " = " + (numero * i));
         }
