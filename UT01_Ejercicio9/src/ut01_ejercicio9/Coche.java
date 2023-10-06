@@ -10,7 +10,7 @@ package ut01_ejercicio9;
  */
 public class Coche extends Thread {
 
-    public static final Coche CERROJO = new Coche(); // Objeto de bloqueo para el puente
+    public static final Object CERROJO = new Object(); // Objeto de bloqueo para el puente
     private int idCoche;
 
     public Coche() {
