@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        List<String> messages = List.of("message1", "message2", "message3", "message4");
+    public static List<String> messages = List.of("message1", "message2", "message3", "message4");
+    public static long maxTime = 10000;
+
+    public static void main(String[] args) throws InterruptedException {
 
         Thread.currentThread().setName("thread1");
 
@@ -29,11 +31,19 @@ public class Main {
 
         thread2.start();
 
-        while (){
-
+        while (thread2.isAlive()) {
+            print("Continuo esperando");
+            thread2.join(1000);
+            long endTime = System.currentTimeMillis();
+            long elapsed = endTime - startTime;
+            if (elapsed > maxTime && thread2.isAlive()){
+                print("No espero mas");
+                thread2.interrupt();
+            }
         }
+        print("Fin.");
 
-//        MINUTO 46:18
+
     }
 
     static void print(String message) {
