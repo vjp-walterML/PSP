@@ -21,10 +21,10 @@ public class Main {
         thread3.start();
         System.out.println("Fin");
 //        Sincrono
-        System.out.println("Inicio");
-        thread1.run();
-        thread2.run();
-        thread3.run();
-        System.out.println("Fin");
+//        System.out.println("Inicio");
+//        thread1.run();
+//        thread2.run();
+//        thread3.run();
+//        System.out.println("Fin");
     }
 }
