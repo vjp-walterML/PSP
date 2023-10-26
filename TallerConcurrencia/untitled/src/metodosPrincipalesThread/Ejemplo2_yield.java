@@ -1,4 +1,4 @@
-package pruebasWalter;
+package metodosPrincipalesThread;
 
 public class Ejemplo2_yield {
     public static void main(String[] args) {

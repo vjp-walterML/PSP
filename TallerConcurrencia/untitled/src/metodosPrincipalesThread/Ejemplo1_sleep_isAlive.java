@@ -1,4 +1,4 @@
-package pruebasWalter;
+package metodosPrincipalesThread;
 
 public class Ejemplo1_sleep_isAlive {
     public static void main(String[] args) throws InterruptedException {

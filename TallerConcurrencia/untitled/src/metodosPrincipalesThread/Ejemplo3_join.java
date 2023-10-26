@@ -1,4 +1,4 @@
-package pruebasWalter;
+package metodosPrincipalesThread;
 
 public class Ejemplo3_join {
     public static void main(String[] args) throws InterruptedException {
