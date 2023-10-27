@@ -61,6 +61,5 @@ class Hilo extends Thread {
     @Override
     public void run() {
         while (!stopHilo) c++;
-        return;
     }
 }
