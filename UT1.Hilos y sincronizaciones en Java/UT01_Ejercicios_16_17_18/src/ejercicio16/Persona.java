@@ -12,9 +12,13 @@ public class Persona extends Thread {
         this.nombre = nombre;
     }
 
-    //    Métodos propios
+    //   Getter
+    public String getNombre() {
+        return nombre;
+    }
+
+    //        Este método retorna una cantidad aleatoria de ms entre 5 y 20ms
     public int tiempoAleatorio() {
-//        Este método retorna una cantidad aleatoria de ms entre 5 y 20ms
         return new Random().nextInt((20 + 1) - 5) + 5;
     }
 
@@ -22,16 +26,22 @@ public class Persona extends Thread {
     public void run() {
         for (int i = 0; i < 3; i++) {
 //        Entrar
-            wc.entrar(this);
+            try {
+                wc.entrar(this);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 //        Tiempo aleatorio dentro
             try {
-                sleep(tiempoAleatorio());
+                int tiempoAleatorio = tiempoAleatorio();
+                System.out.println("        " + this.nombre + " permanece en el baño " + tiempoAleatorio + " milisegundos.");
+                sleep(tiempoAleatorio);
             } catch (InterruptedException e) {
                 //Nada
             }
 //        Salir
             wc.salir(this);
-//        Espera de 50ms después de ir al baño
+//        Espera de 50s después de ir al baño
             try {
                 sleep(500);
             } catch (InterruptedException e) {
