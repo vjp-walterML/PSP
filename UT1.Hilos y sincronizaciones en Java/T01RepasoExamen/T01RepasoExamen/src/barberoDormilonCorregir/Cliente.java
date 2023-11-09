@@ -1,4 +1,4 @@
-package barberoDormilon;
+package barberoDormilonCorregir;
 
 public class Cliente extends Thread {
 
@@ -19,6 +19,12 @@ public class Cliente extends Thread {
 
     @Override
     public void run() {
-        barberia.entrar(this);
+        while (!barberia.entrar(this)) {
+            try {
+                Thread.sleep(4000);//Duermo 4 segundos
+            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+            }
+        }
     }
 }

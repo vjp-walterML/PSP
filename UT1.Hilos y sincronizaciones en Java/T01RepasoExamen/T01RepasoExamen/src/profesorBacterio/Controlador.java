@@ -20,7 +20,7 @@ public class Controlador {
         moleculasOxigeno++;
         System.out.println("Se ha metido un oxígeno.");
         producirAgua();
-        notifyAll();
+//        notifyAll();
     }
 
     public synchronized void meterHidrogeno() {
@@ -35,7 +35,7 @@ public class Controlador {
         moleculasHidrogeno++;
         System.out.println("Se ha metido un hidrógeno.");
         producirAgua();
-        notifyAll();
+//        notifyAll();
     }
 
     public void producirAgua() {
