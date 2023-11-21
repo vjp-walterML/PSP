@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
 
     //Variables globales
-    private static String[] nombrePersonas = {"Ana", "Natalia", "Víctor", "Jesús", "Sergio", "Pepe", "Luis", "Claudia"};
+    private static String[] nombrePersonas = {"Ana", "Natalia", "Víctor", "Jesús", "Sergio", "Pepe", "Luis", "Claudia","Walter","Rosa"};
     private static List<Persona> personas = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
@@ -20,7 +20,7 @@ public class Main {
         }
 
         //Instancio e inicio el empleado
-        Empleado empleado = new Empleado("El empleado ", banio);
+        Empleado empleado = new Empleado("El empleado", banio);
         empleado.start();
 
         //Espero a que terminen todos los hilos

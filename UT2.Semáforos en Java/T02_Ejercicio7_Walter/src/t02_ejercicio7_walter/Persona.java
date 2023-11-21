@@ -20,13 +20,13 @@ public class Persona extends Thread {
     //Run
     @Override
     public void run() {
-        //Cada persona irá dos veces al baño
-        for (int i = 0; i < 2; i++) {
-            try {
-                banio.usarBanio(this);
-            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-            }
+//        for (int i = 0; i < 2; i++) {
+        try {
+            banio.usarBanio(this);
+        } catch (InterruptedException e) {
+            //throw new RuntimeException(e);
         }
+//        }
     }
 }
+

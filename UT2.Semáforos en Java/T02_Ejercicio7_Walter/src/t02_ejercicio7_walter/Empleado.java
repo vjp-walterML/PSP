@@ -20,13 +20,11 @@ public class Empleado extends Thread {
     //Run
     @Override
     public void run() {
-        //El empleado limpiará el baño dos veces
-        for (int i = 0; i < 2; i++) {
-            try {
-                banio.limpiarBanio(this);
-            } catch (InterruptedException e) {
+        try {
+            banio.limpiarBanio(this);
+        } catch (InterruptedException e) {
 //                throw new RuntimeException(e);
-            }
         }
     }
 }
+
