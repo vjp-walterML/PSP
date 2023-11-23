@@ -13,8 +13,8 @@ public class Main {
         //Instancio Baño
         Banio banio = new Banio();
 
-        //Instancio e inicio las personas
-        for (int i = 0; i < nombrePersonas.length; i++) {
+        //Instancio e inicio 5 personas
+        for (int i = 0; i < 5; i++) {
             personas.add(new Persona(nombrePersonas[i], banio));
             personas.get(i).start();
         }
@@ -22,6 +22,11 @@ public class Main {
         //Instancio e inicio el empleado
         Empleado empleado = new Empleado("El empleado", banio);
         empleado.start();
+
+        for (int i = 5; i < 10; i++) {
+            personas.add(new Persona(nombrePersonas[i], banio));
+            personas.get(i).start();
+        }
 
         //Espero a que terminen todos los hilos
         for (Persona persona : personas) {
