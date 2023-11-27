@@ -1,6 +1,7 @@
 package t02_ejercicio9_walter;
 
 public class Encargado extends Thread {
+
     //Atributos
     private String nombre;
     private Jaula jaula;
@@ -18,13 +19,14 @@ public class Encargado extends Thread {
 
     @Override
     public void run() {
-        while (true) {
-            jaula.reponerAlpiste(this);
-            try {
+        //Repone el alpiste 3 veces
+        try {
+            for (int i = 0; i < 3; i++) {
+                jaula.reponerAlpiste(this);
                 Thread.sleep(10);
-            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
             }
+        } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
         }
     }
 }

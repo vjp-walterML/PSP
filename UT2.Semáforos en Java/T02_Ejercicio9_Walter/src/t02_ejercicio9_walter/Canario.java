@@ -19,14 +19,14 @@ public class Canario extends Thread {
 
     @Override
     public void run() {
-        while (true) {
-            jaula.comerAlpiste(this);
-            try {
+        //Cada canario come alpiste 3 veces
+        try {
+            for (int i = 0; i < 3; i++) {
+                jaula.comerAlpiste(this);
                 Thread.sleep(10);
-            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
             }
-
+        } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
         }
     }
 }

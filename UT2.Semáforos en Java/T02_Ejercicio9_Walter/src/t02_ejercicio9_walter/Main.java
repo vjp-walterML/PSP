@@ -14,7 +14,7 @@ public class Main {
 
         //Instancio pajaros
         for (int i = 0; i < 10; i++) {
-            canarios.add(new Canario("Canario" + i, jaula));
+            canarios.add(new Canario("Canario " + i, jaula));
         }
 
         //Instancio Encargado
@@ -27,13 +27,13 @@ public class Main {
         encargado.start();
 
         //Espero a que terminen todos los hilos
-        canarios.forEach(canario -> {
-            try {
+        try {
+            for (Canario canario : canarios) {
                 canario.join();
-            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
             }
-        });
+        } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+        }
 
         //CHECK
         System.out.println("PROGRAMA FINALIZADO");
